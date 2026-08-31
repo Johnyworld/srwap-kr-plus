@@ -6,9 +6,11 @@
 # 받아온 APP 1_2.ppf 는 제3자 저작물이다. 둘 다 레포에 두지 않는다.
 *.ppf
 
-# 제3자 변경목록(.ods)에서 뽑은 파생 데이터 — parse_ods.py 로 생성한다
-units.json
+# 제3자 변경목록(.ods) 과 거기서 뽑은 파생 데이터.
+# units.json 은 parse_ods.py, CHANGES.md 는 make_changes_md.py 로 생성한다.
 *.ods
+units.json
+CHANGES.md
 
 # 파이썬
 __pycache__/

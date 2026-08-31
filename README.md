@@ -29,6 +29,15 @@ SRWAPPlusVer1_2/Extras/SRW_APPlus_AllyChangelist.ods
 python3 parse_ods.py "<...>/Extras/SRW_APPlus_AllyChangelist.ods" units.json
 ```
 
+변경사항 문서(`CHANGES.md`) 도 생성물이다. 유닛 스탯·개조 단계·능력·무기·파일럿
+정신기·SP·스킬까지 **바뀐 항목 전부**를 표로 뽑고, 유닛 스탯은 패치 ISO 와 직접
+대조해 문서와 어긋나는 항목을 따로 표시한다.
+
+```
+python3 make_changes_md.py "<...>/SRW_APPlus_AllyChangelist.ods" \
+        "<원본ISO>" "<패치ISO>" CHANGES.md
+```
+
 ## 쓰는 법
 
 ```
@@ -165,6 +174,21 @@ python3 verify.py <원본ISO> <결과ISO> APPlus1.2_KRv2.4.ppf units.json
 | Getter-3 | 운동성 | 60 | 65 | 60 (변경 없음) |
 | Cardboardier V | 운동성 | 80 | 85 | 80 (변경 없음) |
 | Vysaga | EN | 150 | 170 | 190 |
+
+## 적용 확인 (실기)
+
+라미아를 주인공으로 새 게임을 시작하면 아래가 보인다. 실기에서 확인했다.
+
+| 확인 항목 | 원본 | 패치 후 |
+|---|---|---|
+| Lv1 정신기 1번 | 가속 (Accel) | **필중 (Strike)** |
+| Lv1 정신기 2번 | 집중 (Focus) | **철벽 (Guard)** |
+| 표시 SP (시작 시점) | 38 | **63** |
+
+표시 SP 는 테이블의 기본 SP (35 → 60) 에 레벨 성장분이 더해진 값이다.
+
+Axel Almer 를 고르면 이 확인법은 못 쓴다. Axel 의 1번 정신기는 패치 후에도
+가속(Accel) 그대로다. 대신 **기본 SP 35 → 55** 를 보면 된다.
 
 ## 알아둘 것
 
